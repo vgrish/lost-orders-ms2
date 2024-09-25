@@ -83,7 +83,7 @@ class DateTime
                     $interval->invert = 1;
                 }
 
-                $date->add($interval);
+                $date = clone $date->add($interval);
 
                 return $date->format($format);
             } catch (\Exception $e) {
