@@ -129,11 +129,12 @@ Ext.extend(lostordersms2.grid.OrderCart, MODx.grid.Grid, {
             return ''
           }
 
-          let s = lostordersms2.tools.resourceLink(value, value, true)
-          var pagetitle = record['json']['pagetitle'] || ''
+          var pagetitle = record['json']['pagetitle'] || 'unknown';
+          let s = lostordersms2.tools.resourceLink(pagetitle, value, true)
+
 
           if (pagetitle) {
-            s = s + String.format(' <span class="resource"">{0}</span>', pagetitle)
+            s = String.format('<span class="resource"">({0})</span> ', value) + s;
           }
           return s
         },

@@ -140,7 +140,7 @@ Ext.extend(lostordersms2.grid.Order, MODx.grid.Grid, {
         text: '<i class="icon icon-cogs"></i> ',
         menu: [
           {
-            text: '<i class="icon icon-plus"></i> ' + __(':actions.load'),
+            text: '<i class="icon icon-rotate-right"></i> ' + __(':actions.load'),
             cls: 'lostordersms2-cogs',
             handler: this.loadOrder,
             scope: this,
