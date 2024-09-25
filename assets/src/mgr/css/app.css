@@ -1,0 +1,672 @@
+#modx-body-tag .lostordersms2-formpanel {
+  padding-top: 25px;
+}
+
+.lostordersms2-formpanel .panel-desc {
+  line-height: 0.5;
+  margin-top: 2px;
+  padding: 15px !important;
+}
+
+.x-grid3-col-actions {
+  padding: 3px 0 3px 5px !important;
+}
+
+ul.lostordersms2-row-actions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.lostordersms2-row-actions li {
+  float: left;
+}
+
+ul.lostordersms2-row-actions .btn {
+  padding: 0;
+  margin-right: 2px;
+  min-width: 15px;
+  font-size: larger;
+  border: none;
+  background: none;
+}
+
+.lostordersms2-grid-row-disabled {
+  font-style: italic;
+  opacity: 0.6;
+  color: #555;
+}
+
+.action-red {
+  color: darkred !important;
+}
+
+.action-green {
+  color: darkgreen !important;
+}
+
+.action-blue {
+  color: cadetblue !important;
+}
+
+.action-yellow {
+  color: goldenrod !important;
+}
+
+.action-gray {
+  color: dimgray !important;
+}
+
+a.x-menu-item .x-menu-item-text,
+a.x-menu-item .x-menu-item-text .icon {
+  cursor: pointer;
+}
+
+a.x-menu-item .x-menu-item-text .icon {
+  line-height: 16px;
+  top: auto;
+}
+
+.x-menu-list .icon {
+  min-width: 1em;
+  text-align: center;
+}
+
+.x-menu-list-item:hover .icon {
+  color: inherit !important;
+}
+
+.x-grouptabs-expand {
+  cursor: pointer;
+}
+
+/* actions menu */
+.btn.actions-menu {
+  width: 40px;
+}
+
+.btn.actions-menu:after {
+  content: ' \f107';
+}
+
+/* actions menu */
+.lostordersms2-cogs img {
+  _display: none;
+}
+
+.lostordersms2-cogs {
+  padding: 3px 20px 3px 6px !important;
+}
+
+.lostordersms2-cogs i.fa {
+  padding-right: 3px;
+  width: 15px;
+}
+
+.lostordersms2-flag-checkbox {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 5px;
+}
+
+.lostordersms2-flag-checkbox:before {
+  content: '\f071' !important;
+}
+
+.lostordersms2-flag-checkbox.checked:before {
+  content: '\f00c' !important;
+}
+
+.lostordersms2-flag-banned.checked:before {
+  content: '\f071' !important;
+}
+
+/* ------------------------------------------------------------------ */
+
+.lostordersms2-grid-row-action {
+  margin: 1px 5px 0px 0px;
+  cursor: pointer;
+}
+
+.lostordersms2-grid-row-expander,
+.x-grid3-header-offset .lostordersms2-grid-row-expander {
+  width: 100%;
+  cursor: pointer;
+  background-position: 4px 2px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  display: inline-table;
+  height: auto;
+}
+
+.lostordersms2-grid-row-expander:before {
+  font-family: fontawesome;
+  font-size: 14px;
+  line-height: 10px;
+  content: '\f196';
+  color: #53595f;
+  vertical-align: middle;
+}
+
+.lostordersms2-expander-open .lostordersms2-grid-row-expander:before {
+  font-family: fontawesome;
+  font-size: 14px;
+  line-height: 12px;
+  content: '\f147';
+  color: #53595f;
+  vertical-align: middle;
+}
+
+.lostordersms2-expander-open {
+  overflow: visible !important;
+}
+
+.lostordersms2-content-expand {
+  margin: 5px;
+}
+
+.lostordersms2-content-expand .lostordersms2-thumbs .lostordersms2-image {
+  display: inline-block;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.lostordersms2-expander-open .lostordersms2-content-expand .lostordersms2-description {
+  word-break: break-all;
+  white-space: pre;
+}
+
+.x-grid3-cell-inner.x-grid3-col-exp {
+  padding: 7px 0px 0px 3px !important;
+}
+
+span.lostordersms2-data-json {
+  padding: 5px;
+  line-height: 15px;
+  white-space: break-spaces;
+  clear: both;
+}
+
+span.lostordersms2-data-json br {
+  content: ' ';
+  color: transparent;
+  display: block;
+}
+
+.lostordersms2-form-section-tbar,
+.lostordersms2-form-product-tbar,
+.lostordersms2-form-shipment-tbar {
+  position: absolute;
+  top: 0;
+  width: 100% !important;
+}
+
+.x-layer.x-editor.x-grid-editor input,
+.x-layer.x-editor.x-grid-editor .x-form-textarea.x-form-field {
+  border: none;
+  background: lightgrey;
+  text-align: left;
+  _width: inherit !important;
+}
+
+/* в одну строку */
+.x-grid3-cell-inner.x-grid3-col-product-barcode {
+  display: inline-flex;
+}
+
+.x-grid3-cell-inner.x-grid3-col-product-name {
+  padding: 4px 0px 0px 5px;
+}
+
+.x-grid3-cell-inner.x-grid3-col-product-name a.lostordersms2-link {
+  white-space: initial;
+}
+
+/* ------------------------------------------------------------------ */
+
+.x-grid3-row .x-grid3-cell-inner.x-grid3-col-product-thumb {
+  padding: 0px 0px 0px 0px;
+  display: grid;
+}
+
+.x-grid3-row .x-grid3-td-product-thumb img.lostordersms2-image {
+  max-height: 40px;
+  min-height: 40px;
+  margin-left: 5px;
+}
+
+.x-grid3-row .x-grid3-cell-inner.x-grid3-col-product-date,
+.x-grid3-row .x-grid3-cell-inner.x-grid3-col-product-price {
+  padding: 0px 10px 0px 10px;
+  display: grid;
+  _text-align: center;
+  line-height: 20px;
+}
+
+.lostordersms2-date {
+  font-size: smaller;
+  text-align: center;
+}
+
+.lostordersms2-row-inactive div {
+  color: #aaa !important;
+}
+
+.lostordersms2-row-succeed div {
+  _color: #aaa !important;
+}
+
+.lostordersms2-qtip-image {
+  max-width: 150px;
+}
+
+.lostordersms2-row-unpublished div,
+.lostordersms2-row-unpublished span,
+.lostordersms2-row-unpublished a {
+  color: #aaa !important;
+}
+
+.lostordersms2-row-unpublished img,
+.lostordersms2-row-deleted img,
+.lostordersms2-row-unpublished .lostordersms2-grid-row-expander {
+  opacity: 0.5;
+}
+
+.lostordersms2-row-error div,
+.lostordersms2-row-error span,
+.lostordersms2-row-error a {
+  _font-style: italic;
+  color: brown !important;
+}
+
+.lostordersms2-row-deleted div,
+.lostordersms2-row-deleted span,
+.lostordersms2-row-deleted a {
+  _font-style: italic;
+  opacity: 0.8;
+}
+
+/* search field */
+.x-field-search-clear,
+.x-field-search-go {
+  border-left: 1px solid #e4e4e4 !important;
+}
+
+.x-field-search-clear:hover,
+.x-field-search-go:hover {
+  border-left-color: transparent !important;
+}
+
+.x-field-search-clear:before {
+  content: '\f00d' !important;
+}
+
+.x-field-search-go {
+  right: 31px !important;
+  border-radius: 0 !important;
+}
+
+.x-field-search-go:before {
+  content: '\f002' !important;
+}
+
+/* grid checkcolumn */
+
+.lostordersms2-grid .x-grid3-check-col,
+.lostordersms2-grid .x-grid3-check-col-on {
+  margin-top: 7px;
+}
+
+.lostordersms2-grid .x-grid3-check-col:before,
+.lostordersms2-grid .x-grid3-check-col-on:before {
+  margin: 0;
+  padding: 0px 5px;
+}
+
+/* end grid checkcolumn */
+
+/* grid small */
+.lostordersms2-grid .x-grid3-cell-inner,
+.lostordersms2-grid .x-grid3-hd-inner {
+  padding: 7px 10px 7px 5px;
+}
+
+.lostordersms2-grid .x-grid3 .x-small-editor .x-form-text,
+.lostordersms2-grid .x-grid3 .x-small-editor .x-form-field-wrap {
+  margin-top: 0;
+  padding: 2px 2px 2px 2px;
+}
+
+.lostordersms2-grid .x-grid3-body .x-grid3-td-checker {
+  background-image: none;
+  padding: 5px 0 0;
+}
+
+.lostordersms2-grid .x-grid3-row-expander {
+  height: 15px;
+  margin-top: 8px;
+}
+
+.lostordersms2-grid .x-grid3-col-actions {
+  padding: 3px 0 3px 5px !important;
+}
+
+ul.lostordersms2-row-actions .btn {
+  padding: 0;
+  margin-right: 2px;
+  min-width: 15px;
+  font-size: larger;
+  border: none;
+  background: none;
+}
+
+ul.lostordersms2-row-actions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (max-width: 962px) {
+  .modx-grid-small .x-toolbar-cell.tbar-checkbox {
+    padding: 5px 0;
+  }
+  .modx-grid-small .x-small-editor .x-form-text {
+    min-width: 30px;
+  }
+  .modx-grid-small .x-panel-bbar .x-toolbar-ct tbody tr {
+    display: inline-flex;
+  }
+
+  .tab-panel-wrapper .modx-grid-small .x-panel-tbar table tbody tr,
+  .tab-panel-wrapper .modx-grid-small .x-panel-tbar table tbody tr td {
+    margin-bottom: 0 !important;
+  }
+
+  .lostordersms2-window .x-column {
+    float: left;
+    overflow: hidden;
+    zoom: 1;
+    margin: 0;
+    padding: 0;
+    width: initial !important;
+  }
+
+  .lostordersms2-window.x-window .x-form-field-wrap {
+    width: initial !important;
+  }
+}
+
+/* end grid small */
+
+.lostordersms2-over-menu .x-menu-item .x-menu-item-icon.lostordersms2-over-icon {
+  left: 18px;
+}
+
+.lostordersms2-image-thumb {
+  width: 120px;
+  height: 90px;
+}
+
+.lostordersms2-image-thumb img {
+  max-width: 120px;
+  max-height: 90px;
+  display: block;
+  margin: auto;
+}
+
+.modx-browser-thumb-wrap.lostordersms2-image-add {
+  border: 1px solid #3697cd;
+}
+
+/* grid thumb */
+.x-grid3-col-product-pagetitle,
+.x-grid3-col-thumb,
+.x-grid3-col-image {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+.x-grid3-col-thumb img,
+.x-grid3-col-image img {
+  max-height: 29px;
+  display: block;
+}
+
+.x-grid3-row .x-grid3-cell-inner.x-grid3-col-thumb,
+.x-grid3-row .x-grid3-cell-inner.x-grid3-col-image {
+  padding: 0px 0px 0px 5px;
+  display: grid;
+}
+
+.lostordersms2-thumb-qtip {
+  max-width: 150px;
+}
+
+/* end grid thumb */
+
+/* hr-text */
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  text-align: center;
+  height: 1.5em;
+  background: none;
+}
+
+.hr-text:before {
+  content: '';
+  background: linear-gradient(to right, transparent, #b5b8c8, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+
+.hr-text:after {
+  content: attr(data-content);
+  position: relative;
+  display: inline-block;
+  color: black;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+  color: #b5b8c8;
+  background-color: #ffffff;
+}
+
+/* end hr-text */
+/***
+
+ */
+
+/*
+.modx-grid-small .x-grid3-cell-inner {
+    padding: 8px 5px
+}
+*/
+
+.modx-grid-small .x-grid3-hd-inner {
+  padding: 8px 18px 8px 5px;
+}
+
+.modx-grid-small .x-grid3-td-checker {
+  padding: 6px 0 0;
+}
+
+.modx-grid-small .x-grid3-td-checker.x-grid3-hd {
+  padding-top: 0;
+}
+
+.modx-grid-small .x-panel-tbar .x-toolbar {
+  padding-top: 2px;
+}
+
+.modx-grid-small .x-panel-tbar .x-toolbar.x-small-editor .x-form-text {
+  padding: 3px 8px 2px;
+}
+
+.modx-grid-small .x-panel-tbar .x-toolbar .x-btn {
+  padding: 4px 10px;
+}
+
+.modx-grid-small .x-panel-bbar .x-toolbar .x-btn {
+  padding: 2px;
+}
+
+.modx-grid-small .x-panel-bbar .x-toolbar .x-form-text {
+  padding: 2px 3px;
+}
+
+.modx-grid-small .x-tbar-loading:before {
+  line-height: 16px;
+}
+
+.modx-grid-small .x-tbar-page-first:before,
+.modx-grid-small .x-tbar-page-last:before,
+.modx-grid-small .x-tbar-page-next:before,
+.modx-grid-small .x-tbar-page-prev:before {
+  line-height: 16px;
+}
+
+.modx-grid-small .x-btn-icon.arrow_down button:before,
+.modx-grid-small .x-btn-icon.arrow_up button:before,
+.modx-grid-small .x-btn-icon.refresh button:before {
+  line-height: 16px;
+}
+
+.modx-grid-small .x-grid-group-hd {
+  padding-top: 0;
+}
+
+.modx-grid-small .x-grid-group-hd div.x-grid-group-title {
+  padding: 5px 0px 5px 5px;
+}
+
+.lostordersms2-expand-grid .lostordersms2-grid.x-grid-panel {
+  padding: 5px 15px 5px 15px;
+}
+
+.lostordersms2-row-badge {
+  padding: 4px 10px;
+  background-color: #cacaca;
+  border-radius: 3px;
+}
+
+.lostordersms2-grid .x-grid3-hd-row td.ux-filtered-column .x-grid3-hd-inner {
+  color: #3697cd;
+}
+
+.modx-grid-small .x-grid3-hd-inner {
+  padding: 8px 8px 8px 5px;
+  font-size: 11px;
+}
+
+/* grid info */
+
+.lostordersms2-grid-info {
+  text-align: center;
+  margin: 0px;
+  display: table-row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -1px;
+}
+
+.lostordersms2-grid-info table {
+  background: #f9f9f9;
+  border-radius: 5px;
+  padding: 0px 0px 0px 5px;
+}
+
+.lostordersms2-grid-info table tr {
+  margin-top: -10px;
+}
+
+.lostordersms2-grid-info td span {
+  font-size: 16px;
+  line-height: 22px;
+  margin: 0px 20px 0px 20px;
+}
+
+@media screen and (max-width: 640px) {
+  .lostordersms2-grid-info {
+    display: grid;
+    background: #f9f9f9;
+    border-radius: 5px;
+    padding: 0px 0px 0px 5px;
+    margin-top: 5px;
+  }
+
+  .x-toolbar-ct .lostordersms2-grid-info tbody tr td {
+    display: table-cell;
+    width: 100%;
+  }
+}
+
+/* end grid info */
+
+/* class field */
+.x-field-lostordersms2-class-clear,
+.x-field-lostordersms2-class-go {
+  border-left: 1px solid #e4e4e4 !important;
+}
+
+.x-field-lostordersms2-class-clear:hover,
+.x-field-lostordersms2-class-go:hover {
+  border-left-color: transparent !important;
+}
+
+.x-field-lostordersms2-class-clear:before {
+  content: '\f00d' !important;
+}
+
+.x-field-lostordersms2-class-go {
+  right: 31px !important;
+  border-radius: 0 !important;
+}
+
+.x-field-lostordersms2-class-go:before {
+  content: '\f0c1' !important;
+}
+
+.x-field-lostordersms2-list-clear,
+.x-field-lostordersms2-list-go {
+  border-left: 1px solid #e4e4e4 !important;
+}
+
+.x-field-lostordersms2-list-clear:hover,
+.x-field-lostordersms2-list-go:hover {
+  border-left-color: transparent !important;
+}
+
+.x-field-lostordersms2-list-clear:before {
+  content: '\f00d' !important;
+}
+
+.x-field-lostordersms2-list-go {
+  right: 31px !important;
+  border-radius: 0 !important;
+}
+
+.x-field-lostordersms2-list-go:before {
+  content: '\f0dc' !important;
+}
+
+/* end class field */
+
+a.order-link {
+  color: inherit;
+  text-decoration: none;
+}
+a.order-link:hover {
+  color: inherit;
+}

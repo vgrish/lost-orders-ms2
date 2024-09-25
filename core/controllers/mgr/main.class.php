@@ -1,0 +1,14 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Copyright (c) 2024 Vgrish <vgrish@gmail.com>
+ * "vgrish/lost-orders-ms2" package for LostOrdersMS2
+ * The version 1.0.0
+ * @see https://github.com/vgrish/lost-orders-ms2
+ */
+
+class LostOrdersMS2MgrMainManagerController extends \Vgrish\LostOrders\MS2\Controllers\Mgr\Main
+{
+}

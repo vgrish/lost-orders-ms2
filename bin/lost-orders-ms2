@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/** @var modX $modx */
+require dirname(__DIR__) . '/core/bootstrap.php';
+
+(new Vgrish\LostOrders\MS2\Console\Console())->run();
