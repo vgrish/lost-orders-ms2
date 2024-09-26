@@ -171,6 +171,9 @@ class Order extends \xPDOObject
 
                 $rows[$tmp[CartItemField::ID]] = $tmp;
             }
+        } else {
+            $modx->log(\modX::LOG_LEVEL_ERROR, \print_r($c->toSql(), true));
+            $modx->log(\modX::LOG_LEVEL_ERROR, \print_r($c->stmt->errorInfo(), true));
         }
 
         $products = [];
@@ -232,7 +235,7 @@ class Order extends \xPDOObject
             'user' => $user,
             'total' => $total,
             'products' => $products,
-            'url' => $url,
+            'order_url' => $url,
         ]);
     }
 }
