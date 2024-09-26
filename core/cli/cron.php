@@ -26,6 +26,11 @@ $scheduler->php(__DIR__ . '/send-notifications.php', null, [], 'send_notificatio
     ->inForeground()
     ->onlyOne();
 
+$scheduler->php(__DIR__ . '/remove-junk.php', null, [], 'remove_junk')
+    ->hourly()
+    ->inForeground()
+    ->onlyOne();
+
 $executed = $scheduler->run();
 
 /** @var Job $job */

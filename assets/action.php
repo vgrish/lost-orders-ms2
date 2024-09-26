@@ -14,27 +14,19 @@ declare(strict_types=1);
 \define('MODX_API_MODE', true);
 \define('MODX_REQP', false);
 
-$dir = __DIR__;
+$dir = \realpath(\dirname(__FILE__, 4));
 
-while (true) {
-    if ('/' === $dir) {
-        break;
-    }
+if (\mb_substr($dir, -12) === '/core/vendor') {
+    $dir = \str_replace('/core/vendor', '', $dir);
+}
 
-    if (\file_exists($dir . '/config/config.inc.php')) {
-        require $dir . '/config/config.inc.php';
-
-        break;
-    }
-
-    $dir = \dirname($dir);
+if (\file_exists($dir . '/config.core.php')) {
+    require_once $dir . '/config.core.php';
 }
 
 if (!\defined('MODX_CORE_PATH')) {
     exit('Could not load MODX core');
 }
-
-require_once MODX_BASE_PATH . 'config.core.php';
 
 require_once MODX_CORE_PATH . 'config/' . MODX_CONFIG_KEY . '.inc.php';
 

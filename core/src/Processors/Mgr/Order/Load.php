@@ -22,6 +22,7 @@ class Load extends GetList
      */
     public function process()
     {
+        OrderManager::clean();
         OrderManager::load();
 
         return $this->outputArray([]);

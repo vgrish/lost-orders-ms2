@@ -34,14 +34,17 @@ abstract class AbstractMultipleProcessor extends \modProcessor
                     continue;
                 }
 
-                $manager = new ProcessorManager([
-                    'processors_path' => ProcessorConfig::PROCESSORS_PATH,
-                    'location' => ProcessorConfig::PROCESSORS_LOCATION_MGR,
-                    'action' => $method,
-                    $this->primaryKeyField => $id,
-                    'field_name' => $this->getProperty('field_name', false),
-                    'field_value' => $this->getProperty('field_value', false),
-                ]);
+                $manager = new ProcessorManager(
+                    new App($this->modx),
+                    [
+                        'processors_path' => ProcessorConfig::PROCESSORS_PATH,
+                        'location' => ProcessorConfig::PROCESSORS_LOCATION_MGR,
+                        'action' => $method,
+                        $this->primaryKeyField => $id,
+                        'field_name' => $this->getProperty('field_name', false),
+                        'field_value' => $this->getProperty('field_value', false),
+                    ],
+                );
 
                 if ($manager->hasError()) {
                     return $manager->getResponse();
@@ -49,6 +52,7 @@ abstract class AbstractMultipleProcessor extends \modProcessor
             }
         } elseif ($this->getProperty('field_name') === 'false') {
             $manager = new ProcessorManager(
+                new App($this->modx),
                 \array_merge($_REQUEST, [
                     'processors_path' => ProcessorConfig::PROCESSORS_PATH,
                     'location' => ProcessorConfig::PROCESSORS_LOCATION_MGR,

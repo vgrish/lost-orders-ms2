@@ -121,8 +121,8 @@ class InstallCommand extends Command
                 [
                     'key' => $key,
                     'namespace' => App::NAME,
-                    'xtype' => 'numberfield',
-                    'value' => '3600',
+                    'xtype' => 'textfield',
+                    'value' => '30i',
                 ],
                 false,
                 true,
@@ -139,8 +139,26 @@ class InstallCommand extends Command
                 [
                     'key' => $key,
                     'namespace' => App::NAME,
-                    'xtype' => 'numberfield',
-                    'value' => '7200',
+                    'xtype' => 'textfield',
+                    'value' => '2h',
+                ],
+                false,
+                true,
+            );
+            $setting->save();
+            $output->writeln('<info>Created system setting "' . $key . '"</info>');
+        }
+
+        $key = App::NAMESPACE . '.lifetime_order';
+
+        if (!$modx->getObject(\modSystemSetting::class, $key)) {
+            $setting = new \modSystemSetting($modx);
+            $setting->fromArray(
+                [
+                    'key' => $key,
+                    'namespace' => App::NAME,
+                    'xtype' => 'textfield',
+                    'value' => '1m',
                 ],
                 false,
                 true,
@@ -150,24 +168,6 @@ class InstallCommand extends Command
         }
 
         $key = App::NAMESPACE . '.session_class';
-
-        if (!$modx->getObject(\modSystemSetting::class, $key)) {
-            $setting = new \modSystemSetting($modx);
-            $setting->fromArray(
-                [
-                    'key' => $key,
-                    'namespace' => App::NAME,
-                    'xtype' => 'textfield',
-                    'value' => '',
-                ],
-                false,
-                true,
-            );
-            $setting->save();
-            $output->writeln('<info>Created system setting "' . $key . '"</info>');
-        }
-
-        $key = App::NAMESPACE . '.utm_source';
 
         if (!$modx->getObject(\modSystemSetting::class, $key)) {
             $setting = new \modSystemSetting($modx);
@@ -195,6 +195,24 @@ class InstallCommand extends Command
                     'namespace' => App::NAME,
                     'xtype' => 'textfield',
                     'value' => 'utm_key',
+                ],
+                false,
+                true,
+            );
+            $setting->save();
+            $output->writeln('<info>Created system setting "' . $key . '"</info>');
+        }
+
+        $key = App::NAMESPACE . '.utm_value';
+
+        if (!$modx->getObject(\modSystemSetting::class, $key)) {
+            $setting = new \modSystemSetting($modx);
+            $setting->fromArray(
+                [
+                    'key' => $key,
+                    'namespace' => App::NAME,
+                    'xtype' => 'textfield',
+                    'value' => '',
                 ],
                 false,
                 true,

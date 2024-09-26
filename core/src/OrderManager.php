@@ -14,7 +14,9 @@ namespace Vgrish\LostOrders\MS2;
 use Vgrish\LostOrders\MS2\Constant\CartItemField;
 use Vgrish\LostOrders\MS2\Constant\OrderField;
 use Vgrish\LostOrders\MS2\Constant\SessionField;
+use Vgrish\LostOrders\MS2\Models\Order;
 use Vgrish\LostOrders\MS2\Tools\Arrays;
+use Vgrish\LostOrders\MS2\Tools\DateTime;
 use Vgrish\LostOrders\MS2\Tools\Sessions;
 
 class OrderManager
@@ -45,6 +47,35 @@ class OrderManager
         return (self::getInstance())::$app;
     }
 
+    public static function clean(): void
+    {
+        $app = self::app();
+        $modx = $app::modx();
+
+        $class = $app->getOption('session_class', null, 'modSession', true);
+
+        if ($lifetime = $app->getOption('lifetime_order', null)) {
+            $c = $modx->newQuery(Order::class);
+            $c->command('DELETE');
+            $c->where([
+                OrderField::CREATED_AT . ':<' => \strtotime(DateTime::transformDate(\time(), $lifetime, true)),
+            ]);
+            $c->prepare();
+            $c->stmt->execute();
+        }
+
+        // NOTE помечаем неактивными все заказы с несуществующей сессией
+        $c = $modx->newQuery(Order::class);
+        $c->command('UPDATE');
+        $c->query['where'][] = new \xPDOQueryCondition([
+            'sql' => \sprintf('`%s` NOT IN (SELECT `id` FROM %s)', OrderField::SESSION_ID, $modx->getTableName($class)),
+            'conjunction' => 'AND',
+        ]);
+        $c->set([OrderField::COMPLETED => true]);
+        $c->prepare();
+        $c->stmt->execute();
+    }
+
     public static function load(?\Closure $callback = null, int $limit = 100): void
     {
         if (null === $callback) {
@@ -55,17 +86,15 @@ class OrderManager
         $modx = $app::modx();
 
         $class = $app->getOption('session_class', null, 'modSession', true);
-        $min = (int) $app->getOption('min_time_order_waiting', null, '3600', true);
-        $max = (int) $app->getOption('max_time_order_waiting', null, '7200', true);
 
-        $min = \time() - \max(1800, $min);
-        $max = \time() - \max(3600, $max);
+        $min = $app->getOption('min_time_order_waiting', null, '30i', true);
+        $max = $app->getOption('max_time_order_waiting', null, '2h', true);
 
         $c = $modx->newQuery($class);
         $c->where([
             SessionField::DATA . ':LIKE' => '%' . SessionField::MINISHOP . '%',
-            SessionField::ACCESS . ':>' => $max,
-            SessionField::ACCESS . ':<' => $min,
+            SessionField::ACCESS . ':>' => \strtotime(DateTime::transformDate(\time(), $max, true)),
+            SessionField::ACCESS . ':<' => \strtotime(DateTime::transformDate(\time(), $min, true)),
         ]);
         $c->sortby(SessionField::ACCESS, 'DESC');
         $c->select(\implode(',', [SessionField::DATA, SessionField::ACCESS, SessionField::ID])); // 'data,access,id'

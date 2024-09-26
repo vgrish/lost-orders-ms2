@@ -222,7 +222,7 @@ class Order extends \xPDOObject
 
         $args = [
             'action' => 'Order/Load',
-            $app->getOption('utm_key', null) => $app->getOption('utm_source', null),
+            $app->getOption('utm_key', null) => $app->getOption('utm_value', null),
             OrderField::UUID => parent::get(OrderField::UUID),
         ];
         $args = \array_filter($args, static fn ($value, $key) => !empty($key) && !empty($value), \ARRAY_FILTER_USE_BOTH);
