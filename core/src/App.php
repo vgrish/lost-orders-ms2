@@ -18,7 +18,7 @@ class App
     public const AUTHOR = 'vgrish';
     public const NAME = 'LostOrdersMS2';
     public const NAMESPACE = 'lost-orders-ms2';
-    public const VERSION = '1.0.0';
+    public const VERSION = '1.0.2';
     protected static \modX $modx;
     protected static $instance;
 

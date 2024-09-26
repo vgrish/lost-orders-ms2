@@ -18,17 +18,13 @@ class ProcessorManager
     protected ?bool $error = false;
     protected array $output = [];
 
-    public function __construct(array $options)
+    public function __construct(?App $app, array $options)
     {
-        $modx = \modX::getInstance(\modX::class);
-
-        $ctx = 'mgr';
-
-        if (isset($modx->context)) {
-            $ctx = $modx->context->get('key');
+        if (null === $app) {
+            $app = App::getInstance();
         }
 
-        $modx->initialize($ctx);
+        $modx = $app::modx();
 
         if (!isset($modx->lexicon)) {
             $modx->getService('lexicon', 'modLexicon');
@@ -114,6 +110,8 @@ class ProcessorManager
         } else {
             $className = $modx->processors[$processorFile];
         }
+
+        // $modx->log(1, var_export($modx->map['msOrder'],true));
 
         if (!empty($className)) {
             $processor = \call_user_func_array([$className, 'getInstance'], [&$modx, $className, $options]);
