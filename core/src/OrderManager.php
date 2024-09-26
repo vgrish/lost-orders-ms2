@@ -191,7 +191,7 @@ class OrderManager
 
         $uuid = $data[SessionField::ORDER_UUID] ?? 0;
         $session_id = $array[SessionField::ID] ?? 0;
-        $access = $array[SessionField::ACCESS] ?? 0;
+        $created_at = $array[SessionField::ACCESS] ?? 0;
 
         $factory = new OrderFactory();
 
