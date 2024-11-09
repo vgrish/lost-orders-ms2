@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Vgrish\LostOrders\MS2;
 
 use Vgrish\LostOrders\MS2\Constant\OrderField;
+use Vgrish\LostOrders\MS2\Constant\SessionField;
 use Vgrish\LostOrders\MS2\Models\Order;
 
 class EmailManager
@@ -101,7 +102,7 @@ class EmailManager
             return;
         }
 
-        $email = $order->getEmail();
+        $email = $order->setFlagSended()->getEmail();
 
         if (empty($email)) {
             return;
@@ -112,15 +113,18 @@ class EmailManager
         }
 
         $app = self::app();
+        $modx = $app::modx();
+        $modx->invokeEvent(App::NAME . 'OnBeforeNotifySend', [
+            SessionField::ORDER => &$order,
+        ]);
+
         $pls = $order->getPls();
 
         $subject = $pdoTools->getChunk($app->getOption('notice_subject'), $pls);
         $body = $pdoTools->getChunk($app->getOption('notice_body'), $pls);
 
         if (self::send($email, $subject, $body)) {
-            $order
-                ->setFlagSended()
-                ->save();
+            $order->save();
         }
     }
 

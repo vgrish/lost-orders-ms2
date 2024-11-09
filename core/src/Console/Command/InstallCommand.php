@@ -409,8 +409,28 @@ class InstallCommand extends Command
             }
         }
 
+        foreach (
+            [
+                'OnBeforeNotifySend',
+            ] as $eventName
+        ) {
+            if (!$modx->getObject(\modEvent::class, [
+                'name' => App::NAME . $eventName,
+                'groupname' => App::NAME,
+            ])) {
+                $event = new \modEvent($modx);
+                $event->fromArray([
+                    'name' => App::NAME . $eventName,
+                    'service' => 6,
+                    'groupname' => App::NAME,
+                ], '', true, true);
+                $event->save();
+                $output->writeln('<info>Created event "' . $event->get('name') . '"</info>');
+            }
+        }
+
         if (!$plugin = $modx->getObject(\modPlugin::class, ['name' => App::NAME])) {
-            $plugin = new \modPlugin($modx); // $modx->newObject(\modPlugin::class);
+            $plugin = new \modPlugin($modx);
             $plugin->fromArray(
                 [
                     'name' => App::NAME,
