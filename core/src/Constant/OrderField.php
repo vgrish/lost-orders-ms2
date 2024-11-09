@@ -31,6 +31,7 @@ class OrderField extends AbstractConstants
      * @var string @description Флаг отправки письма заказа
      */
     public const SENDED = 'sended';
+    public const SENDED_AGAIN = 'sended_again';
 
     /**
      * @var string @description Флаг создания заказа в minishop

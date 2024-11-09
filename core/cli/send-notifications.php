@@ -9,8 +9,10 @@ declare(strict_types=1);
  * @see https://github.com/vgrish/lost-orders-ms2
  */
 
+use Vgrish\LostOrders\MS2\EmailAgainManager;
 use Vgrish\LostOrders\MS2\EmailManager;
 
 require \dirname(__DIR__) . '/bootstrap.php';
 
 EmailManager::load();
+EmailAgainManager::load();

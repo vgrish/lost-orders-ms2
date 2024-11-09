@@ -25,6 +25,7 @@ $xpdo_meta_map['LostOrdersMS2Order'] = [
         'visits' => 0,
         'completed' => 0,
         'sended' => 0,
+        'sended_again' => 0,
         'generated' => 0,
         'created_at' => null,
         'updated_at' => null,
@@ -84,6 +85,14 @@ $xpdo_meta_map['LostOrdersMS2Order'] = [
             'default' => 0,
         ],
         'sended' => [
+            'dbtype' => 'tinyint',
+            'precision' => '1',
+            'phptype' => 'boolean',
+            'attributes' => 'unsigned',
+            'null' => false,
+            'default' => 0,
+        ],
+        'sended_again' => [
             'dbtype' => 'tinyint',
             'precision' => '1',
             'phptype' => 'boolean',
@@ -244,6 +253,19 @@ $xpdo_meta_map['LostOrdersMS2Order'] = [
             'type' => 'BTREE',
             'columns' => [
                 'sended' => [
+                    'length' => '',
+                    'collation' => 'A',
+                    'null' => false,
+                ],
+            ],
+        ],
+        'sended_again' => [
+            'alias' => 'sended_again',
+            'primary' => false,
+            'unique' => false,
+            'type' => 'BTREE',
+            'columns' => [
+                'sended_again' => [
                     'length' => '',
                     'collation' => 'A',
                     'null' => false,

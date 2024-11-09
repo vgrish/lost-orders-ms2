@@ -16,6 +16,8 @@
                default="0"/>
         <field key="sended" dbtype="tinyint" precision="1" phptype="boolean" attributes="unsigned" null="false"
                default="0"/>
+        <field key="sended_again" dbtype="tinyint" precision="1" phptype="boolean" attributes="unsigned" null="false"
+               default="0"/>
         <field key="generated" dbtype="tinyint" precision="1" phptype="boolean" attributes="unsigned" null="false"
                default="0"/>
 
@@ -56,6 +58,9 @@
         </index>
         <index alias="sended" name="sended" primary="false" unique="false" type="BTREE">
             <column key="sended" length="" collation="A" null="false"/>
+        </index>
+        <index alias="sended_again" name="sended_again" primary="false" unique="false" type="BTREE">
+            <column key="sended_again" length="" collation="A" null="false"/>
         </index>
         <index alias="generated" name="generated" primary="false" unique="false" type="BTREE">
             <column key="generated" length="" collation="A" null="false"/>

@@ -110,6 +110,13 @@ class Order extends \xPDOObject
         return $this;
     }
 
+    public function setFlagSendedAgain(): self
+    {
+        $this->set(OrderField::SENDED_AGAIN, true);
+
+        return $this;
+    }
+
     public function setFlagOrderGenerated($msorder_id = 0): self
     {
         $this->set(OrderField::GENERATED, true);

@@ -167,6 +167,24 @@ class InstallCommand extends Command
             $output->writeln('<info>Created system setting "' . $key . '"</info>');
         }
 
+        $key = App::NAMESPACE . '.notice_again_waiting';
+
+        if (!$modx->getObject(\modSystemSetting::class, $key)) {
+            $setting = new \modSystemSetting($modx);
+            $setting->fromArray(
+                [
+                    'key' => $key,
+                    'namespace' => App::NAME,
+                    'xtype' => 'textfield',
+                    'value' => '20i',
+                ],
+                false,
+                true,
+            );
+            $setting->save();
+            $output->writeln('<info>Created system setting "' . $key . '"</info>');
+        }
+
         $key = App::NAMESPACE . '.session_class';
 
         if (!$modx->getObject(\modSystemSetting::class, $key)) {
@@ -304,6 +322,42 @@ class InstallCommand extends Command
         }
 
         $key = App::NAMESPACE . '.notice_body';
+
+        if (!$modx->getObject(\modSystemSetting::class, $key)) {
+            $setting = new \modSystemSetting($modx);
+            $setting->fromArray(
+                [
+                    'key' => $key,
+                    'namespace' => App::NAME,
+                    'xtype' => 'textfield',
+                    'value' => '@INLINE {$url}',
+                ],
+                false,
+                true,
+            );
+            $setting->save();
+            $output->writeln('<info>Created system setting "' . $key . '"</info>');
+        }
+
+        $key = App::NAMESPACE . '.notice_again_subject';
+
+        if (!$modx->getObject(\modSystemSetting::class, $key)) {
+            $setting = new \modSystemSetting($modx);
+            $setting->fromArray(
+                [
+                    'key' => $key,
+                    'namespace' => App::NAME,
+                    'xtype' => 'textfield',
+                    'value' => '@INLINE Мы кое-что сохранили для вас!',
+                ],
+                false,
+                true,
+            );
+            $setting->save();
+            $output->writeln('<info>Created system setting "' . $key . '"</info>');
+        }
+
+        $key = App::NAMESPACE . '.notice_again_body';
 
         if (!$modx->getObject(\modSystemSetting::class, $key)) {
             $setting = new \modSystemSetting($modx);
