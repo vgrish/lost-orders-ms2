@@ -185,42 +185,6 @@ class InstallCommand extends Command
             $output->writeln('<info>Created system setting "' . $key . '"</info>');
         }
 
-        $key = App::NAMESPACE . '.utm_key';
-
-        if (!$modx->getObject(\modSystemSetting::class, $key)) {
-            $setting = new \modSystemSetting($modx);
-            $setting->fromArray(
-                [
-                    'key' => $key,
-                    'namespace' => App::NAME,
-                    'xtype' => 'textfield',
-                    'value' => 'utm_key',
-                ],
-                false,
-                true,
-            );
-            $setting->save();
-            $output->writeln('<info>Created system setting "' . $key . '"</info>');
-        }
-
-        $key = App::NAMESPACE . '.utm_value';
-
-        if (!$modx->getObject(\modSystemSetting::class, $key)) {
-            $setting = new \modSystemSetting($modx);
-            $setting->fromArray(
-                [
-                    'key' => $key,
-                    'namespace' => App::NAME,
-                    'xtype' => 'textfield',
-                    'value' => '',
-                ],
-                false,
-                true,
-            );
-            $setting->save();
-            $output->writeln('<info>Created system setting "' . $key . '"</info>');
-        }
-
         $key = App::NAMESPACE . '.action_url';
 
         if (!$modx->getObject(\modSystemSetting::class, $key)) {

@@ -14,6 +14,7 @@ namespace Vgrish\LostOrders\MS2\Models;
 use Vgrish\LostOrders\MS2\App;
 use Vgrish\LostOrders\MS2\Constant\CartItemField;
 use Vgrish\LostOrders\MS2\Constant\OrderField;
+use Vgrish\LostOrders\MS2\Tools\Utm;
 
 class Order extends \xPDOObject
 {
@@ -223,11 +224,17 @@ class Order extends \xPDOObject
 
         $app = App::getInstance();
 
-        $args = [
-            'action' => 'Order/Load',
-            $app->getOption('utm_key', null) => $app->getOption('utm_value', null),
-            OrderField::UUID => parent::get(OrderField::UUID),
-        ];
+        $args = \array_merge(
+            Utm::get(
+                empty(parent::get(OrderField::SENDED)) ? 'initial' : 'repeated',
+                parent::get(OrderField::UUID),
+            ),
+            [
+                'action' => 'Order/Load',
+                OrderField::UUID => parent::get(OrderField::UUID),
+            ],
+        );
+
         $args = \array_filter($args, static fn ($value, $key) => !empty($key) && !empty($value), \ARRAY_FILTER_USE_BOTH);
         $url = $app->getOption('action_url', null) . '?' . \http_build_query($args);
 

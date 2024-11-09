@@ -32,8 +32,6 @@ composer remove vgrish/lost-orders-ms2
 * `session_class` - класс объекта сессии, если не указан используется `modSession`.
 * `action_url` - ссылка на коннектор обработки перехода к брошенному заказу, по умолчанию `http://sitename.ru/assets/components/lost-orders-ms2/action.php`
 * `return_id` - идентификатор ресурса на который будет перекинут пользователь после коннектора.
-* `utm_key` - ключ utm метки.
-* `utm_value` - значение utm метки для ссылки перехода на брошенный заказ.
 
 * `grid_order_period` - период выборки заказов в админке сайта, по умолчанию `1w` - 1 неделя.
 * `grid_order_fields` - список полей для вывода в таблице заказов.
