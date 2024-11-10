@@ -36,6 +36,7 @@ $xpdo_meta_map['LostOrdersMS2Order'] = [
         'cart_total_count' => 0,
         'cart_total_cost' => 0,
         'cart' => null,
+        'extra' => null,
     ],
     'fieldMeta' => [
         'uuid' => [
@@ -162,6 +163,11 @@ $xpdo_meta_map['LostOrdersMS2Order'] = [
             'attributes' => 'unsigned',
         ],
         'cart' => [
+            'dbtype' => 'text',
+            'phptype' => 'json',
+            'null' => true,
+        ],
+        'extra' => [
             'dbtype' => 'text',
             'phptype' => 'json',
             'null' => true,

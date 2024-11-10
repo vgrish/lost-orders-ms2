@@ -35,6 +35,7 @@
                attributes="unsigned"/>
 
         <field key="cart" dbtype="text" phptype="json" null="true"/>
+        <field key="extra" dbtype="text" phptype="json" null="true" />
 
 
         <index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE">
