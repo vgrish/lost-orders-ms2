@@ -112,6 +112,10 @@ if ('Order/Load' === $action) {
     $modx->user = null;
     $modx->getUser($ctx);
 
+    $modx->invokeEvent(App::NAME . 'OnActionOrderLoad', [
+        SessionField::ORDER => $order,
+    ]);
+
     return $return(true);
 }
 

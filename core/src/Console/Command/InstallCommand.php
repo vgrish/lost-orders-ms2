@@ -412,6 +412,7 @@ class InstallCommand extends Command
         foreach (
             [
                 'OnBeforeNotifySend',
+                'OnActionOrderLoad',
             ] as $eventName
         ) {
             if (!$modx->getObject(\modEvent::class, [

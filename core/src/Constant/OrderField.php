@@ -44,4 +44,5 @@ class OrderField extends AbstractConstants
     public const CART_TOTAL_COST = 'cart_total_cost';
     public const ACCESS = 'access';
     public const CART = 'cart';
+    public const EXTRA = 'extra';
 }
