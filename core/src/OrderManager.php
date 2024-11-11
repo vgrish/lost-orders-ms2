@@ -175,8 +175,8 @@ class OrderManager
 
         // NOTE пробуем получить пользователя по данным заказа
         if (empty($user_id)) {
-            $email = \trim((string) $order[SessionField::EMAIL] ?? '');
-            $phone = \trim((string) $order[SessionField::PHONE] ?? '');
+            $email = \trim((string) ($order[SessionField::EMAIL] ?? ''));
+            $phone = \trim((string) ($order[SessionField::PHONE] ?? ''));
 
             if ($user = $app::getUserByContacts($email, $phone)) {
                 $user_id = $user->get('id');
