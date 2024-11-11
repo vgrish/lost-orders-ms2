@@ -39,6 +39,7 @@ class OrderField extends AbstractConstants
     public const GENERATED = 'generated';
     public const VISIT_AT = 'visit_at';
     public const SENDED_AT = 'sended_at';
+    public const SENDED_AGAIN_AT = 'sended_again_at';
     public const GENERATED_AT = 'generated_at';
     public const CART_TOTAL_COUNT = 'cart_total_count';
     public const CART_TOTAL_COST = 'cart_total_cost';

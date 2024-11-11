@@ -38,6 +38,10 @@ class Order extends \xPDOObject
             parent::set(OrderField::SENDED_AT, \time());
         }
 
+        if (parent::isDirty(OrderField::SENDED_AGAIN) && parent::get(OrderField::SENDED_AGAIN)) {
+            parent::set(OrderField::SENDED_AGAIN_AT, \time());
+        }
+
         if (parent::isDirty(OrderField::GENERATED) && parent::get(OrderField::GENERATED)) {
             parent::set(OrderField::GENERATED_AT, \time());
         }
