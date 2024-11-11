@@ -196,7 +196,7 @@ class OrderManager
         $factory = new OrderFactory();
 
         foreach ($cartsByCtx as $context_key => $cart) {
-            $factory->process(\compact(OrderField::all()));
+            $factory->process(\array_intersect_key(\get_defined_vars(), \array_flip(OrderField::all())));
         }
     }
 }
