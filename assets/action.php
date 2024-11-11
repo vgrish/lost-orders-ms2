@@ -44,10 +44,9 @@ $app = App::getInstance();
 $modx->getService('error', 'error.modError');
 $modx->setLogLevel(modX::LOG_LEVEL_ERROR);
 $modx->setLogTarget('FILE');
+$modx->initialize();
 
-$return = static function ($success = false, $ctx = 'web') use ($app): void {
-    $modx = $app::modx();
-    $modx->initialize($ctx);
+$return = static function ($success = false) use ($app, $modx): void {
     $returnId = (int) $app->getOption('return_id', null, $modx->getOption('site_start'), true);
     $returnUrl = $modx->context->makeUrl(
         $returnId,
@@ -60,6 +59,7 @@ $return = static function ($success = false, $ctx = 'web') use ($app): void {
             'xhtml_urls' => false,
         ],
     );
+
     $modx->sendRedirect($returnUrl);
 
     exit;
@@ -106,7 +106,6 @@ if ('Order/Load' === $action) {
     }
 
     $ctx = $order->get(OrderField::CONTEXT_KEY);
-    $modx->initialize($ctx);
     $modx->switchContext($ctx);
     $modx->user = null;
     $modx->getUser($ctx);
@@ -120,7 +119,6 @@ if ('Order/Load' === $action) {
 
 if ('Order/View' === $action) {
     $ctx = $order->get(OrderField::CONTEXT_KEY);
-    $modx->initialize($ctx);
     $modx->switchContext($ctx);
     $modx->user = null;
     $modx->getUser($ctx);
