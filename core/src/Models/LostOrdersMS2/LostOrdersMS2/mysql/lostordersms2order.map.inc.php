@@ -31,6 +31,7 @@ $xpdo_meta_map['LostOrdersMS2Order'] = [
         'updated_at' => null,
         'visit_at' => null,
         'sended_at' => null,
+        'sended_again_at' => null,
         'generated_at' => null,
         'context_key' => 'web',
         'cart_total_count' => 0,
@@ -128,6 +129,12 @@ $xpdo_meta_map['LostOrdersMS2Order'] = [
             'null' => true,
         ],
         'sended_at' => [
+            'dbtype' => 'int',
+            'precision' => '20',
+            'phptype' => 'timestamp',
+            'null' => true,
+        ],
+        'sended_again_at' => [
             'dbtype' => 'int',
             'precision' => '20',
             'phptype' => 'timestamp',

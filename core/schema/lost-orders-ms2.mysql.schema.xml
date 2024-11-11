@@ -25,6 +25,7 @@
         <field key="updated_at" dbtype="int" precision="20" phptype="timestamp" null="true" />
         <field key="visit_at" dbtype="int" precision="20" phptype="timestamp" null="true" />
         <field key="sended_at" dbtype="int" precision="20" phptype="timestamp" null="true" />
+        <field key="sended_again_at" dbtype="int" precision="20" phptype="timestamp" null="true" />
         <field key="generated_at" dbtype="int" precision="20" phptype="timestamp" null="true" />
 
         <field key="context_key" dbtype="varchar" precision="100" phptype="string" null="true" default="web" />
