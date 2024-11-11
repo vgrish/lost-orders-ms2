@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace Vgrish\LostOrders\MS2\Processors\Mgr\Order;
 
-use Vgrish\LostOrders\MS2\App;
 use Vgrish\LostOrders\MS2\Constant\OrderField;
+use Vgrish\LostOrders\MS2\EmailAgainManager;
 use Vgrish\LostOrders\MS2\EmailManager;
 use Vgrish\LostOrders\MS2\Models\Order;
 use Vgrish\LostOrders\MS2\Processors\AbstractGetProcessor;
@@ -25,33 +25,16 @@ class Send extends AbstractGetProcessor
 
     public function cleanup()
     {
-        if ($this->object->get(OrderField::SENDED)) {
-            return $this->success('');
+        /** @var Order $order */
+        $order = $this->object;
+
+        if (!$order->get(OrderField::SENDED)) {
+            EmailManager::buildEmail($order);
+        } elseif (!$order->get(OrderField::SENDED_AGAIN)) {
+            EmailAgainManager::buildEmail($order);
         }
 
-        $email = $this->object->getEmail();
-
-        if (empty($email)) {
-            return $this->success('');
-        }
-
-        if (!$pdoTools = $this->modx->getService('pdoTools')) {
-            return false;
-        }
-
-        $app = new App($this->modx);
-        $pls = $this->object->getPls();
-
-        $subject = $pdoTools->getChunk($app->getOption('notice_subject'), $pls);
-        $body = $pdoTools->getChunk($app->getOption('notice_body'), $pls);
-
-        if (EmailManager::send($email, $subject, $body)) {
-            $this->object
-                ->setFlagSended()
-                ->save();
-        }
-
-        return $this->success('', $this->object->toArray());
+        return $this->success('', $order->toArray());
     }
 }
 

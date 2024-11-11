@@ -180,6 +180,17 @@ class GetList extends AbstractGetListProcessor
                 'menu' => true,
                 'link' => true,
             ];
+        } elseif (empty($row['sended_again'])) {
+            $row['actions'][] = [
+                'cls' => '',
+                'icon' => 'icon icon-envelope',
+                'title' => Lexicon::get(':actions.send_again'),
+                'multiple' => Lexicon::get(':actions.send_again'),
+                'action' => 'sendOrder',
+                'button' => true,
+                'menu' => true,
+                'link' => true,
+            ];
         }
 
         // sep
