@@ -5,7 +5,6 @@ declare(strict_types=1);
 /**
  * Copyright (c) 2024 Vgrish <vgrish@gmail.com>
  * "vgrish/lost-orders-ms2" package for LostOrdersMS2
- * The version 1.0.0
  * @see https://github.com/vgrish/lost-orders-ms2
  */
 
@@ -18,7 +17,7 @@ class App
     public const AUTHOR = 'vgrish';
     public const NAME = 'LostOrdersMS2';
     public const NAMESPACE = 'lost-orders-ms2';
-    public const VERSION = '1.0.4';
+    public const VERSION = '1.0.5';
     protected static \modX $modx;
     protected static $instance;
 
