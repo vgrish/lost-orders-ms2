@@ -33,10 +33,8 @@ class Main extends AbstractController
             'grid_order_cart_fields' => $orderCartFields,
         ];
 
-        $config = \json_encode($config, \JSON_THROW_ON_ERROR | \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE);
-
         $assetsUrl = ConnectorConfig::ASSETS_URL;
-        $this->addHtml(\sprintf('<script>lostordersms2.config=%s;</script>', $config));
+        $this->addHtml(\sprintf('<script>lostordersms2.config=%s;</script>', \json_encode($config, \JSON_THROW_ON_ERROR | \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE)));
         $this->addCss($assetsUrl . 'src/mgr/css/app.css');
         $this->addJavascript($assetsUrl . 'src/mgr/js/app.js');
         $this->addJavascript($assetsUrl . 'src/mgr/js/misc/tools.js');
