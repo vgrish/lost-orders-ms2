@@ -416,6 +416,7 @@ Ext.extend(lostordersms2.grid.Order, MODx.grid.Grid, {
       },
       sended: {
         renderer: function (value, metaData, record) {
+          let prefixBadge = ''
           let textValue = value === true ? __(':models.order.sended_1') : __(':models.order.sended_0')
 
           let backColor = value === true ? '' : '2f9bf9',
@@ -423,8 +424,18 @@ Ext.extend(lostordersms2.grid.Order, MODx.grid.Grid, {
 
           let qtip = record['json']['sended_at'] || ''
 
+          let again = record['json']['sended_again']
+          if (again) {
+            prefixBadge = 'x '
+          }
+
+          if (again && record['json']['sended_again_at']) {
+            qtip += '<br>' + record['json']['sended_again_at']
+          }
+
           return String.format(
-            '<span class="lostordersms2-row-badge" ext:qtip="{3}" style="background-color:#{0};color:#{1}">{2}</span>',
+            '<span class="lostordersms2-row-badge" ext:qtip="{4}" style="background-color:#{1};color:#{2}">{0}{3}</span>',
+            prefixBadge,
             backColor,
             textColor,
             textValue,

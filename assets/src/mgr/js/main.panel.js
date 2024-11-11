@@ -29,7 +29,7 @@ lostordersms2.panel.Main = function (config) {
                 xtype: 'lostordersms2-grid-order',
               },
             ],
-          }
+          },
         ],
       },
     ],
