@@ -42,6 +42,9 @@ composer remove vgrish/lost-orders-ms2
 * `grid_order_cart_fields` - список полей для вывода в таблице товаров заказа.
 * `notice_subject` - тема оповещения.
 * `notice_body` - тело оповещения. Можно указать в виде файлового чанка `@FILE chunks/email/notice.body.tpl`
+* `notice_again_subject` - тема повторного оповещения.
+* `notice_again_body` - тело повторного оповещения. Можно указать в виде файлового чанка `@FILE chunks/email/notice.body.tpl`
+
 
 ### События
 
