@@ -210,6 +210,7 @@ class Order extends \xPDOObject
 
             $product['old_price'] = $old_price;
             $product['cost'] = $entry['count'] * $entry['price'];
+            $product['options'] = [];
 
             // Additional properties of product in cart
             if (!empty($entry['options']) && \is_array($entry['options'])) {
